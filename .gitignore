@@ -1,0 +1,41 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+*.class
+
+# Package Files #
+*.ear
+**/build
+**/bin
+**/target
+
+# IDE Files #
+*.iml
+/.idea
+**/.classpath
+**/.settings
+**/.project
+
+# Gradle Files #
+/.gradle
+
+# JRevel Files #
+**/rebel.xml
+
+# ETC Files #
+.DS_Store
+*.log
+/.apt_generated/
+
+# Project Test Files #
+**/src/main/webapp/VAADIN/widgetsets

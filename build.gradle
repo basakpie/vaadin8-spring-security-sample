@@ -1,0 +1,86 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath "fi.jasoft.plugin:gradle-vaadin-plugin:${vaadinGradlePluginVersion}"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootPluginVersion}"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'fi.jasoft.plugin.vaadin'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven { url = "http://maven.vaadin.com/vaadin-addons"}
+}
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = "UTF-8"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+    from 'src/main/webapp'
+}
+
+eclipse {
+    classpath {
+        downloadJavadoc = true
+        downloadSources=true
+    }
+}
+
+idea {
+    module {
+        jdkName = '1.8'
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+eclipseJdt.onlyIf { false }
+cleanEclipseJdt.onlyIf { false }
+
+idea {
+    sourceSets.main.resources.srcDir  'src/main/webapp'
+}
+
+springBoot {
+    mainClass = 'com.basakpie.Application'
+}
+
+bootRun.dependsOn 'vaadinCompile', 'vaadinThemeCompile'
+
+dependencyManagement {
+    imports {
+        mavenBom "com.vaadin:vaadin-bom:${vaadinBomVersion}"
+    }
+    dependencies {
+        dependency("com.vaadin:vaadin-spring-boot-starter:${vaadinSpringVersion}")
+        dependency("org.vaadin.spring.extensions:vaadin-spring-ext-boot:${vaadin4SpringVersion}")
+        dependency("org.vaadin.spring.extensions:vaadin-spring-ext-security:${vaadin4SpringVersion}")
+        dependency("org.hibernate:hibernate-validator:4.3.1.Final")
+        dependency("javax.validation:validation-api:1.0.0.GA")
+    }
+}
+
+dependencies {
+    compile 'com.vaadin:vaadin-spring-boot-starter'
+    compile 'org.vaadin.spring.extensions:vaadin-spring-ext-boot'
+    compile 'org.vaadin.spring.extensions:vaadin-spring-ext-security'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtime 'org.hsqldb:hsqldb'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2.1'
+}
