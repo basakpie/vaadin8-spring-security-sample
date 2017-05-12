@@ -12,8 +12,8 @@ Linux/Mac
 
 [source,groovy,indent=0]
 ----
-gradlew clean build
-gradlew bootRun
+sh gradlew clean build
+sh gradlew bootRun
 ----
 
 Windows
