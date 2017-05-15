@@ -60,7 +60,7 @@ public class MainUI extends UI implements ViewDisplay {
 		navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
 		navigationBar.addComponent(createNavigationButton("User View", UserView.VIEW_NAME));
 		navigationBar.addComponent(createNavigationButton("Admin View", AdminView.VIEW_NAME));
-		navigationBar.addComponent(new Button("Logout", e -> getPage().setLocation("logout")));
+		navigationBar.addComponent(new Button("Logout", e -> vaadinSecurity.logout()));
 
 		final VerticalLayout root = new VerticalLayout();
 		root.setSizeFull();
