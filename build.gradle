@@ -58,6 +58,10 @@ springBoot {
 
 bootRun.dependsOn 'vaadinCompile', 'vaadinThemeCompile'
 
+vaadin {
+    version "${vaadinBomVersion}"
+}
+
 dependencyManagement {
     imports {
         mavenBom "com.vaadin:vaadin-bom:${vaadinBomVersion}"
