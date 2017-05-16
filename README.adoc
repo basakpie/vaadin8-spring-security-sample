@@ -42,5 +42,5 @@ requires SpringSecurity 4.1+
 
 == License & Author
 
-Add-on is distributed under Apache License 2.0. For license terms, see LICENSE.txt.
+Apache License 2.0. For license terms, see LICENSE.txt.
 
