@@ -1,6 +1,6 @@
 :vaadin4spring-github: https://github.com/peholmst/vaadin4spring
 
-=  Vaadin4Spring Security(+JPA) Example
+=  Vaadin4Spring Security(+JPA) Sample
 
 {vaadin4spring-github}[Vaadin4Spring Github >]
 
