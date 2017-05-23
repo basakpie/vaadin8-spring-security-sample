@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 /**
  * Created by daesungkim on 2017. 5. 11..
  */
+@SuppressWarnings("unchecked")
 public final class SecurityContextUtils implements Serializable {
 
     private static final Long serialVersionUID = 1L;
